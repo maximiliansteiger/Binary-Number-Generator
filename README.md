@@ -1,2 +1,5 @@
 # Binary-Number-Generator
-Generate a new Array of Numbers using binary addition
+
+Script to generate a new Array of Numbers using binary addition            
+
+![Alt-Text](./expImg.png)
