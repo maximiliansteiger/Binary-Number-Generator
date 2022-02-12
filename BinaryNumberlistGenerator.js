@@ -1,7 +1,26 @@
 //list of starting numbers
 let numbers = [100, 50, 10, 1];
 
-bitCountArrayToNumberArray(numberArrayToBitCountArray(numbers));
+
+//html output stuff
+document.getElementById("buttonNumbers").addEventListener("click", function () {
+
+    let numberArray = document.getElementById("numbers").value.split(',');
+    // error handling
+    if (numberArray.length == 0) {
+        alert("Please enter a number");
+        return;
+    }
+    numberArray = numberArray.map(number => parseInt(number));
+
+    let res = bitCountArrayToNumberArray(numberArrayToBitCountArray(numberArray));
+
+    document.getElementById("result").innerHTML = res.join(', ');
+    console.log(numberArrayToBitCountArray(numberArray));
+    console.log(res);
+});
+
+
 
 /**
  * 
@@ -10,12 +29,8 @@ bitCountArrayToNumberArray(numberArrayToBitCountArray(numbers));
  */
 function numberArrayToBitCountArray(numbers) {
 
-    let binaryNumbers = numbers;
-    console.log("\n\n it takes in an array of numbers: ",binaryNumbers);
-
-        binaryNumbers = binaryNumbers.map(number => number.toString(2))//convert to binary
-        console.log("\n\n converts the numbers to binary: ",binaryNumbers);
-        binaryNumbers = binaryNumbers.map(number => number.split('')//reverse the string because we want to count from the right
+    let binaryNumbers = numbers.map(number => number.toString(2))//convert to binary
+        .map(number => number.split('')//reverse the string because we want to count from the right
             .reverse()
             .join(''))
         .map(number => number.split('') //convert the string to an number array
@@ -36,8 +51,6 @@ function numberArrayToBitCountArray(numbers) {
         });
         innerCounter = 0;
     });
-
-    console.log("\n\n counts the position of the bits: ",resultArray);
     return resultArray;
 }
 
@@ -50,12 +63,16 @@ function bitCountArrayToNumberArray(bitsCount) {
     let resultArray = [];
     let tempString = "";
 
+    //get max number from the array
+    let maxNumber = Math.max(...bitsCount);
+
     //while the bitsCount array is not empty
-    while (bitsCount.reduce((a, b) => a + b, 0) > 0) {
+    for (let i = 0; i < maxNumber; i++) {
         //loop through the bitsCount array and add the bits to the tempString
         bitsCount.forEach(element => {
             tempString += (element > 0) ? '1' : '0';
         });
+        console.log(tempString);
 
         //reduce the accurancy of the bits by one in the bitsCount array
         bitsCount = bitsCount.map(element => element -= 1);
@@ -64,8 +81,5 @@ function bitCountArrayToNumberArray(bitsCount) {
         resultArray.push(parseInt(tempString.split('').reverse().join(''), 2));
         tempString = "";
     }
-    console.log("\n\n converts the bits back into numbers as long as possible: ",resultArray);
-
-    console.log("\n\n the numbers are the highest possible numbers that can be made with the given bits\n\n");
     return resultArray;
 }
