@@ -1,56 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NumberGenerator</title>
     <script src="./BinaryNumberlistGenerator.js" defer></script>
-</head>
+    <script async src="/cdn-cgi/bm/cv/669835187/api.js"></script>
+  </head>
+  <link rel="stylesheet" href="style.css" />
 
-<body>
-
-
-    <div class="content">
-        <textarea type="text" name="numbers" id="numbers" placeholder="enter numbers like = 15,2,3,75,2"></textarea>
-        <button id="buttonNumbers">Generate</button>
-        <br>
+  <body>
+      <div class="content">
+          <h1>Number Generator</h1>
+        <div class="input-layout">
+          <textarea
+            type="text"
+            name="numbers"
+            id="numbers"
+            placeholder="enter numbers like = 15,2,3,75,2"
+          ></textarea>
+          <button id="buttonNumbers">Generate</button>
+        </div>
         <div id="result"></div>
-    </div>
+      </div>
 
-    <style>
-        body {
-            background-color: #282828;
-        }
-
-        #numbers {
-            width: 100vh;
-            height: 100px;
-            border: 1px solid black;
-        }
-
-        #buttonNumbers {
-            width: 15vw;
-            height: 19vh;
-            border: 1px solid black;
-        }
-
-        .content {
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            justify-content: center;
-            align-items: center;
-            vertical-align: center;
-            margin-top: 20%;
-        }
-        #result{
-            color: white;
-            margin-top: 10vh;
-        }
-    </style>
-
-</body>
-
+    <style></style>
+  </body>
 </html>
