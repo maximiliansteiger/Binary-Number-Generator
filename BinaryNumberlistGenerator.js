@@ -15,7 +15,7 @@ document.getElementById("buttonNumbers").addEventListener("click", function () {
 
     let res = bitCountArrayToNumberArray(numberArrayToBitCountArray(numberArray));
 
-    document.getElementById("result").innerHTML = res.join(', ');
+    document.getElementById("result").innerHTML = '<div class="result-item">' + res.join('</div><div class="result-item">') + '</div>';
     console.log(numberArrayToBitCountArray(numberArray));
     console.log(res);
 });
